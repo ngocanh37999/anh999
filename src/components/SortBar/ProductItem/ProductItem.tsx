@@ -5,7 +5,11 @@ import Mobile from 'src/components/Responsive/Mobile'
 import Tablet from 'src/components/Responsive/Tablet'
 import { path } from 'src/constants/path'
 import { formatK, formatMoney, generateNameId } from 'src/utils/helper'
+import { AiOutlineShoppingCart } from 'react-icons/ai'
 import * as S from './productItem.style'
+import { useDispatch } from 'react-redux'
+import { unwrapResult } from '@reduxjs/toolkit'
+import { addToCart, getCartPurchases } from 'src/slice/cart/cart.slice'
 
 type Product = {
   products: {
@@ -31,6 +35,15 @@ type Product = {
 }
 
 export default function ProductItem({ products }: Product) {
+  const dispatch = useDispatch()
+  const handleAdd = async product => {
+    const body = {
+      product_id: product._id,
+      buy_count: 1
+    }
+    await dispatch(addToCart(body)).then(unwrapResult)
+    await dispatch(getCartPurchases()).then(unwrapResult)
+  }
   return (
     <div>
       <Mobile>
@@ -66,8 +79,16 @@ export default function ProductItem({ products }: Product) {
                             đ{formatMoney(product.price)}
                           </S.ProductItemPriceSale>
                         </S.ProductItemPrice>
+
                         <S.ProductItemMeta>
-                          <ProductRating rating={product.rating} />
+                          <S.Productcart onClick={() => handleAdd(product)}>
+                            <AiOutlineShoppingCart />
+                          </S.Productcart>
+                          <S.ProductRatingContainer
+                            style={{ paddingLeft: '2rem' }}
+                          >
+                            <ProductRating rating={product.rating} />
+                          </S.ProductRatingContainer>
                           <S.ProductItemSold>
                             <span>{formatK(product.sold)}</span>
                             <span>Đã bán</span>
@@ -116,8 +137,16 @@ export default function ProductItem({ products }: Product) {
                             đ{formatMoney(product.price)}
                           </S.ProductItemPriceSale>
                         </S.ProductItemPrice>
+
                         <S.ProductItemMeta>
-                          <ProductRating rating={product.rating} />
+                          <S.Productcart onClick={() => handleAdd(product)}>
+                            <AiOutlineShoppingCart />
+                          </S.Productcart>
+                          <S.ProductRatingContainer
+                            style={{ paddingLeft: '2rem' }}
+                          >
+                            <ProductRating rating={product.rating} />
+                          </S.ProductRatingContainer>
                           <S.ProductItemSold>
                             <span>{formatK(product.sold)}</span>
                             <span>Đã bán</span>
@@ -139,8 +168,6 @@ export default function ProductItem({ products }: Product) {
             {products.map(product => (
               <S.ProductListDesktop
                 key={product._id}
-                // className={isTabletOrMobile === true ? 'isTabletOrMobile' : false}
-                // className={handleResponsive(isTabletOrMobile, isDesktopOrLaptop)}
                 layout
                 animate={{ opacity: 1 }}
                 initial={{ opacity: 0 }}
@@ -166,8 +193,16 @@ export default function ProductItem({ products }: Product) {
                             đ{formatMoney(product.price)}
                           </S.ProductItemPriceSale>
                         </S.ProductItemPrice>
+
                         <S.ProductItemMeta>
-                          <ProductRating rating={product.rating} />
+                          <S.Productcart onClick={() => handleAdd(product)}>
+                            <AiOutlineShoppingCart />
+                          </S.Productcart>
+                          <S.ProductRatingContainer
+                            style={{ paddingLeft: '2rem' }}
+                          >
+                            <ProductRating rating={product.rating} />
+                          </S.ProductRatingContainer>
                           <S.ProductItemSold>
                             <span>{formatK(product.sold)}</span>
                             <span>Đã bán</span>

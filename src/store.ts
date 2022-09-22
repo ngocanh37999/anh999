@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import rootReducer from './reducer'
-const store = configureStore({
+export const store = configureStore({
   reducer: rootReducer,
   devTools: process.env.NODE_ENV === 'development',
   middleware: getDefaultMiddleware => [
@@ -8,7 +8,7 @@ const store = configureStore({
   ]
 })
 
-// useSelector vaf useDispatch
+// useSelector and useDispatch
 export type AppDispatch = typeof store.dispatch
 export type RootState = ReturnType<typeof store.getState>
 export default store

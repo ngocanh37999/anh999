@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
-export const Slider = styled.div`
-  /* margin-bottom: 200px; */
-`
+export const Slider = styled.div``
 
 export const SliderContainer = styled.div`
   width: 480px;
@@ -22,10 +20,6 @@ export const SliderContainer = styled.div`
 export const SwiperWrapper = styled.div`
   width: 100%;
   height: 100%;
-
-  /* padding: 20px; */
-  /* background-color: red; */
-
   .swiper-slide {
     padding-top: 100%;
     overflow: hidden;
@@ -44,7 +38,6 @@ export const SwiperWrapper = styled.div`
   }
   .swiper-button-prev {
     left: 30;
-    // color: rgb(255, 255, 255);
     :after {
       font-size: 2em;
     }
@@ -52,27 +45,8 @@ export const SwiperWrapper = styled.div`
 
   .swiper-button-next {
     right: 30;
-    // color: rgb(255, 255, 255);
     :after {
       font-size: 2em;
     }
   }
 `
-
-// Lưu ý:
-// --------css cho class ở bên thư viện-----
-// .swiper-button-next {
-//   right: 30;
-//   // color: rgb(255, 255, 255);
-//   :after {
-//     font-size: 2em;
-//   }
-// }
-// --------css cho class mình tạo ra....-----
-// &.swiper-button-next {
-//   right: 30;
-//   // color: rgb(255, 255, 255);
-//   :after {
-//     font-size: 2em;
-//   }
-// }

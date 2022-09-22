@@ -7,10 +7,7 @@ import styled from 'styled-components'
 type ButtonProps = {
   light: any
 }
-export const ProductBriefing = styled.div`
-  /* display: flex;
-  background: #fff; */
-`
+export const ProductBriefing = styled.div``
 export const ProductImages = styled.div`
   width: 480px;
   padding: 1.5rem;
@@ -51,22 +48,6 @@ const ProductIconButton = styled.button`
 export const ProductIconButtonPrev = styled(ProductIconButton)`
   left: 0;
 `
-// export const ProductImage = styled.div`
-//   padding: 0.5rem;
-//   height: 92px;
-//   width: 92px;
-//   flex-shrink: 0;
-//   padding: 2px;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   cursor: pointer;
-//   img {
-//     max-width: 100%;
-//     max-height: 100%;
-//     border: 2px solid ${({ active }) => (active ? '#ee4d2d' : 'transparent')};
-//   }
-// `
 export const ProductIconButtonNext = styled(ProductIconButton)`
   right: 0;
 `
@@ -194,36 +175,17 @@ export const ProductContentDetail = styled.div`
   line-height: 2.2;
 `
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 export const SliderContainer = styled.div`
   width: 480px;
   height: 450px;
-  /* width: 100%; */
-  /* width: 90rem; */
-  /* height: 20rem; */
   margin: auto;
   overflow: hidden;
   position: relative;
   cursor: pointer;
 `
 export const SliderContainerMobile = styled.div`
-  /* width: 480px; */
   height: 500px;
   width: 100%;
-  /* width: 90rem; */
-  /* height: 20rem; */
   margin: auto;
   overflow: hidden;
   position: relative;
@@ -232,8 +194,6 @@ export const SliderContainerMobile = styled.div`
   &.containerMobile {
     height: auto;
     width: 100%;
-    /* width: 90rem; */
-    /* height: 20rem; */
     margin: auto;
     overflow: hidden;
     position: relative;
@@ -266,9 +226,7 @@ export const SlideImage = styled.img`
 export const SlideTitle = styled.h2``
 export const SlideText = styled.h3``
 
-export const Arrows = styled.div`
-  /* position: relative; */
-`
+export const Arrows = styled.div``
 export const Prev = styled.span`
   width: auto;
   position: absolute;
@@ -354,13 +312,6 @@ export const ProductButtonsOne = styled.button`
   padding: 0 4.2rem;
   font-size: 14px;
   height: 48px;
-  /* svg {
-    margin-right: 10px;
-    color: #ee4d2d;
-    stroke: #ee4d2d;
-    width: 2rem;
-    height: 2rem;
-  } */
   &:hover {
     background: rgba(255, 87, 34, 0.15);
   }

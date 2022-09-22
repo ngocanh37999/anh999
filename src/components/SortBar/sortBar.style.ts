@@ -39,20 +39,6 @@ export const SortByOptionsOption = styled.div`
   &.active {
     color: #fff;
     background: #ee4d2d;
-
-    /* background-image: linear-gradient(
-      to right,
-      #00f260,
-      #f79d00,
-      #0575e6,
-      #64f38c
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    background-size: 300%;
-    background-position: 0%;
-    animation: ${textanimationone} 2s infinite alternate forwards; */
   }
 `
 
@@ -119,10 +105,4 @@ export const SortBarTabletOrMobile = styled.div`
   border-radius: 2px;
   margin-bottom: 1.5rem;
 `
-export const SortByOptionsTabletOrMobile = styled.div`
-  /* display: flex; */
-  /* flex-wrap: wrap; */
-  /* align-items: center;
-  flex-grow: 1;
-  justify-content: space-around; */
-`
+export const SortByOptionsTabletOrMobile = styled.div``

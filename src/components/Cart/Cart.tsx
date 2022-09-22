@@ -1,18 +1,33 @@
-import { useState } from 'react'
+// import { unwrapResult } from '@reduxjs/toolkit'
+// import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import { path } from 'src/constants/path'
 import usePopover from 'src/hooks/usePopover'
-import useQuery from 'src/hooks/useQuery'
-import { RootState } from 'src/store'
+// import { deletePurchases, getCartPurchases } from 'src/slice/cart/cart.slice'
 import { formatMoney } from 'src/utils/helper'
 import Popover from '../Popover/Popover'
+// import { RiDeleteBin5Line } from 'react-icons/ri'
 import * as S from './cart.style'
+import { path } from 'src/constants/path'
+
+type RootState = {
+  cart: {
+    purchases: {
+      _id: string
+      product: { image: string; name: string; price: number }
+    }[]
+  }
+}
 export default function Cart() {
+  // const dispatch = useDispatch()
   const { activePopover, hidePopover, showPopover } = usePopover()
 
   const purchases = useSelector((state: RootState) => state.cart.purchases)
 
+  // const handleRemove = indexPurchase => async () => {
+  //   const purchase_id = purchases[indexPurchase]._id
+  //   await dispatch(deletePurchases([purchase_id])).then(unwrapResult)
+  //   await dispatch(getCartPurchases()).then(unwrapResult)
+  // }
   return (
     <div>
       <S.Cart onMouseEnter={showPopover} onMouseLeave={hidePopover}>
@@ -40,7 +55,7 @@ export default function Cart() {
           <Popover active={activePopover}>
             <S.PopoverContent>
               <S.PopoverTitle>Sản phẩm mới thêm</S.PopoverTitle>
-              {/* {purchases.slice(0, 5).map(purchase => (
+              {purchases.slice(0, 5).map((purchase, index) => (
                 <S.MiniProductCart key={purchase._id}>
                   <S.MiniProductCartImg src={purchase.product.image} />
                   <S.MiniProductCartTitle>
@@ -49,8 +64,11 @@ export default function Cart() {
                   <S.MiniProductCartPrice>
                     đ{formatMoney(purchase.product.price)}
                   </S.MiniProductCartPrice>
+                  {/* <S.CartRemove onClick={handleRemove(index)}>
+                    <RiDeleteBin5Line />
+                  </S.CartRemove> */}
                 </S.MiniProductCart>
-              ))} */}
+              ))}
 
               <S.PopoverFooter>
                 <S.MoreProduct>
@@ -58,7 +76,7 @@ export default function Cart() {
                     <span>{purchases.length - 5} sản phẩm vào giỏ</span>
                   )}
                 </S.MoreProduct>
-                {/* <S.ButtonShowCart to={path.cart}>Xem giỏ hàng</S.ButtonShowCart> */}
+                <S.ButtonShowCart to={path.cart}>Xem giỏ hàng</S.ButtonShowCart>
               </S.PopoverFooter>
             </S.PopoverContent>
           </Popover>

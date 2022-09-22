@@ -1,10 +1,8 @@
 import { Link } from 'react-router-dom'
 import { SearchIcon } from 'src/components/svg/SearchIcon/searchIcon.style'
 import styled, { css, keyframes } from 'styled-components'
-// import { SearchIcon } from '../svg/SearchIcon/searchIcon.style'
 
 export const Search = styled.div`
-  /* flex: 1; */
   width: 100%;
   align-items: center;
   justify-content: center;

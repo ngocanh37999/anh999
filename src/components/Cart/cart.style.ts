@@ -103,7 +103,7 @@ export const CartNumberBadge = styled.div`
   padding: 0px 5px;
   text-align: center;
   border: 2px solid #ee4d2d;
-  color: #ee4d2d;
+  color: #fff;
   background-color: #000;
   line-height: 1;
   top: 2px;
@@ -153,7 +153,7 @@ export const MoreProduct = styled.div`
   flex-grow: 1;
   text-transform: capitalize;
 `
-export const ButtonShowCart = styled(Link)<LightProps>`
+export const ButtonShowCart = styled(Link)`
   height: 3.5rem;
   padding: 1px 15px;
   text-transform: capitalize;
@@ -172,17 +172,9 @@ export const ButtonShowCart = styled(Link)<LightProps>`
   &:hover {
     background: #f05d40;
   }
-  ${({ light }) => {
-    if (light) {
-      return `
-      background: #fff;
-      color: #555;
-      border: 1px solid rgba(0,0,0,.09);
-      box-shadow: 0 1px 1px 0 rgb(0 0 0 / 3%);
-      &:hover {
-        background: rgba(0,0,0,.02);
-      }
-      `
-    }
-  }}
+`
+
+export const CartRemove = styled.div`
+  cursor: pointer;
+  padding-left: 1rem;
 `

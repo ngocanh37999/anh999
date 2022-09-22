@@ -6,21 +6,13 @@ type Open = {
 }
 
 export const Menu = styled.div`
-  /* width: 16rem; */
   align-items: center;
 `
 
 export const Container = styled.div`
-  /* width: 10vw; */
-  /* width: 15vw; */
-  /* width: 19rem; */
-  /* height: 40vh; */
-  /* padding: 40px; */
   background-color: #ffffff;
   color: red;
   display: flex;
-  /* justify-content: center;
-  align-items: center; */
   width: 100%;
 `
 export const ContainerOne = styled.div`
@@ -34,18 +26,12 @@ export const ContainerOne = styled.div`
 export const MenuIcon = styled.div`
   display: flex;
   align-items: center;
-  /* width: 19rem; */
   width: 100%;
 `
 
 export const ContainerTwo = styled.div<Open>`
-  /* width: 80px;
-  height: 80px; */
   width: 28px;
   height: 28px;
-  /* border: 1px solid #e1e5e9; */
-  /* border-radius: 10px; */
-  /* background-color: #f0f4f7; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,11 +41,8 @@ export const ContainerTwo = styled.div<Open>`
 
   span {
     position: absolute;
-    /* width: 60px;
-    height: 8px; */
     width: 24px;
     height: 4px;
-    /* background-color: #3a7bec; */
     background-color: #808080;
     border-radius: 4px;
     transition: 0.5s;
@@ -105,31 +88,19 @@ export const DanhMuc = styled.div`
 
 export const Wrapper = styled.div`
   position: absolute;
-  /* top: 120px; */
   top: 36px;
-  /* width: 19rem; */
-  /* width: 100%; */
   left: 0;
-
   width: 16rem;
 `
 export const Arrow = styled.div<Open>`
   position: absolute;
   width: 0;
   height: 0;
-  /* top: -15px;
-  left: 20px;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-bottom: 20px solid #f0f4f7; */
-
   top: -19px;
   left: -2px;
   border-left: 16px solid transparent;
   border-right: 16px solid transparent;
-  /* border-bottom: 16px solid #4297d7; */
   border-bottom: 20px solid #f0f4f7;
-
   opacity: ${({ open }) => (open ? 1 : 0)};
   transition: all 0.25s ease-in-out;
   z-index: 4000;
@@ -140,12 +111,9 @@ export const DropDown = styled.div<Open>`
   margin-top: -0.5rem;
   border-radius: 8px;
   border: ${({ open }) => (open ? '1px' : '0px')} solid #e1e5e9;
-  /* width: 200px; */
-  /* width: 19rem; */
   height: fit-content;
   max-height: ${({ open }) => (open ? '700px' : '0px')};
   background-color: #e4e6eb;
-  /* background-color: #f0f4f7; */
   overflow: hidden;
   transition: all 0.25s ease-in-out;
 `
@@ -161,16 +129,7 @@ export const Item = styled.div`
   }
 `
 
-//
-//
-//
-//
-//
-//
-
 export const Sidebar = styled.div`
-  /* width: 180px; */
-  /* hoặc */
   width: 19rem;
 `
 export const Brief = styled.div`
@@ -249,19 +208,6 @@ export const SidebarMenuEntryIcon = styled.div`
   }
 `
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 export const LinkTest = styled(NavLink)`
   display: flex;
   color: #030303;
@@ -288,8 +234,6 @@ export const CategoryItem = styled.li`
   a {
     color: rgba(0, 0, 0, 0.8);
     &.active {
-      /* font-weight: 700;
-      color: #ee4d2d; */
       background: linear-gradient(
         90deg,
         #ff0000,

@@ -130,23 +130,11 @@ export const ProductItemPriceSale = styled.div`
 `
 export const ProductItemMeta = styled.div`
   display: flex;
-  justify-content: flex-end;
-`
-export const ProductItemSold = styled.div`
-  color: rgba(0, 0, 0, 0.87);
-  margin-left: 0.5rem;
-  font-size: 1.2rem;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  span:first-child {
-    margin-right: 3px;
-  }
+  justify-content: space-between;
 `
 
 // responsive
 export const ProductListTabletOrMobile = styled(motion.div)`
-  /* update ngày 5 tháng 9 năm 2022 - nếu xóa dòng này kết hợp dofgn 157-158 sẽ thành 100%*/
   display: flex;
   flex-wrap: wrap;
 
@@ -168,4 +156,29 @@ export const ProductListDesktop = styled(motion.div)`
 
   flex: 0 0 20%;
   max-width: 20%;
+`
+
+export const Productcart = styled.div`
+  cursor: pointer;
+  /* flex: 0 0 10%;
+  max-width: 10%; */
+`
+export const ProductRatingContainer = styled.div`
+  /* flex: 0 0 50%;
+  max-width: 50%;
+  cursor: pointer; */
+  align-items: center;
+`
+export const ProductItemSold = styled.div`
+  /* flex: 0 0 40%;
+  max-width: 40%; */
+  color: rgba(0, 0, 0, 0.87);
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  span:first-child {
+    margin-right: 3px;
+  }
 `

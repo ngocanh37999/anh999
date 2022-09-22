@@ -29,11 +29,11 @@ const handleUnauth = state => {
   localStorage.removeItem(LocalStorage.accessToken)
 }
 
-const typeOfPares: string | any = localStorage.getItem(LocalStorage.user)
 const auth = createSlice({
   name: 'auth',
   initialState: {
-    profile: JSON.parse(typeOfPares) || {}
+    // @ts-ignore
+    profile: JSON.parse(localStorage.getItem(LocalStorage.user)) || {}
   },
   reducers: {
     unauthorize: handleUnauth

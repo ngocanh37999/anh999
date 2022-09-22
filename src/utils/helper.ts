@@ -1,14 +1,3 @@
-// export const payloadCreator =
-//   (asyncFunc: any) => async (arg: any, thunkAPI: any) => {
-//     try {
-//       const res = await asyncFunc(arg)
-//       return res
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error)
-//     }
-
-// const payloadCreator: (asyncFunc: any) => (arg: any, thunkAPI: any) => Promise<any>
-
 type payloadCreatorZZ = (
   asyncFunc: any
 ) => (arg: any, thunkAPI: any) => Promise<any>

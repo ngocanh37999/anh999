@@ -1,27 +1,23 @@
 import { ChangeEvent, FocusEvent } from 'react'
-
 type BaseInputNumberProps = {
-  // onChange: () => void
   onChange?: (e: ChangeEvent<HTMLInputElement> | string) => void
   value: string | number
-  onBlur?: (e: FocusEvent<HTMLInputElement> | string) => void
+  onBlur?: (e: FocusEvent<HTMLInputElement, Element> | string) => void
 }
-
 export default function BaseInputNumber({
   onChange,
   value,
   onBlur,
   ...props
 }: BaseInputNumberProps) {
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const val = event.target.value
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value
     if ((/^\d+$/.test(val) || val === '') && onChange) {
       onChange(val)
     }
   }
-
-  const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
-    const val = event.target.value
+  const handleBlur = (e: FocusEvent<HTMLInputElement, Element>) => {
+    const val = e.target.value
     onBlur && onBlur(val)
   }
   return (

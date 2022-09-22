@@ -6,12 +6,12 @@ import Loading from './components/Loading/Loading'
 
 function App() {
   return (
-    <div className="App">
+    <>
       <RoutesApp />
       <Loading />
       <ToastContainer />
       <Authorization />
-    </div>
+    </>
   )
 }
 

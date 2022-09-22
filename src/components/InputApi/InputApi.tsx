@@ -64,12 +64,11 @@ export default function InputApi() {
     value => {
       setSearchInput(value)
     },
-    // delay in ms
+
     2000
-    // { maxWait: 2000 }
   )
 
-  const handleChangeSearch = (e: any) => {
+  const handleChangeSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault()
     const searchWord = e.target.value
 
@@ -78,8 +77,8 @@ export default function InputApi() {
     searchWord === '' ? setResultSearch([]) : setResultSearch(resultSearch)
   }
 
-  const search = (event: any) => {
-    event.preventDefault()
+  const search = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
     const _value = searchInput.trim()
     if (_value !== '') {
       navigate(path.home + `?name=${searchInput}`)
@@ -89,7 +88,7 @@ export default function InputApi() {
     setResultSearch([])
   }
 
-  const keyboardNavigation = (e: any) => {
+  const keyboardNavigation = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'ArrowDown') {
       e.preventDefault()
 
@@ -113,29 +112,13 @@ export default function InputApi() {
     }
   }
 
-  const isDesktopOrLaptop = useMediaQuery({
-    query: '(min-width: 1224px)'
-  })
-  // const isBigScreen = useMediaQuery({ query: '(min-width: 1824px)' })
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
-  // const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
-  // const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' })
-
   const [animationInput, setAnimationInput] = useState(false)
   const toggleVisible = () => {
     setAnimationInput(visible => !visible)
   }
-  // useInterval(() => {
-  //   toggleVisible()
-  // }, 2000)
 
-  console.log(resultSearch)
   return (
     <S.Responsive style={{ display: 'flex', flex: '1', padding: '0 4px' }}>
-      {/* <IconButton>
-        <AiOutlineSearch fontSize="large" className="icon" />
-      </IconButton> */}
-
       <ClickAwayListener
         mouseEvent="onMouseDown"
         touchEvent="onTouchStart"
@@ -144,13 +127,6 @@ export default function InputApi() {
         <S.Search onClick={handleClick}>
           <S.Form onSubmit={search}>
             <S.InputWrapper>
-              {/* <Typed
-                  strings={['Bạn muốn tìm gì?', 'Đồng hồ', 'Điện thoại']}
-                  typeSpeed={40}
-                  backSpeed={50}
-                  attr="placeholder"
-                  loop
-                > */}
               <S.InputGroupInput
                 type="text"
                 defaultValue={searchInput}
@@ -160,20 +136,15 @@ export default function InputApi() {
                 className={animationInput ? 'animationInput' : ''}
                 placeholder="Nhập tên sản phẩm, từ khóa cần tìm"
               />
-              {/* </Typed> */}
+
               <S.Button type="submit">
                 <SearchIcon />
               </S.Button>
-              {/* {isPending && <p>Update list...</p>} */}
+
               {open && resultSearch.length !== 0 && (
                 <S.DataResult>
                   {resultSearch.slice(0, 8).map((product, idx) => {
-                    /////////////// Cách 1:
                     return (
-                      // <Link
-                      //   to={path.product + `/${generateNameId(product)}`}
-                      //   key={product._id}
-                      // >
                       <S.DataItem
                         to={path.product + `/${generateNameId(product)}`}
                         className={cursor === idx ? 'dataItem' : ''}
@@ -184,45 +155,7 @@ export default function InputApi() {
                           {product.name}
                         </S.MiniProductCartTitle>
                       </S.DataItem>
-                      // </Link>
                     )
-
-                    /////////////// Cách 2: hightlight
-                    // const index = product.name.indexOf(searchInput)
-                    // return (
-                    //   <Link
-                    //     to={path.product + `/${method.generateNameId(product)}`}
-                    //     key={product._id}
-                    //   >
-                    //     <S.DataItem
-                    //       to={
-                    //         path.product + `/${method.generateNameId(product)}`
-                    //       }
-                    //       groupItem={true ? cursor === idx : false}
-                    //     >
-                    //       <S.MiniProductCartImg src={product.image} alt="" />
-                    //       <S.MiniProductCartTitle>
-                    //         {index === -1 ? (
-                    //           <p>{product.name}</p>
-                    //         ) : (
-                    //           <p>
-                    //             {product.name.slice(0, index)}
-                    //             <span style={{ backgroundColor: 'yellow' }}>
-                    //               {product.name.slice(
-                    //                 index,
-                    //                 index + searchInput.length
-                    //               )}
-                    //             </span>
-                    //             {product.name.slice(index + searchInput.length)}
-                    //           </p>
-                    //         )}
-                    //         {/* {product.name} */}
-                    //       </S.MiniProductCartTitle>
-                    //     </S.DataItem>
-                    //   </Link>
-                    // )
-
-                    //
                   })}
                 </S.DataResult>
               )}

@@ -1,7 +1,8 @@
 import SocialLink from './SocialLink/SocialLink'
-import { useMediaQuery } from 'react-responsive'
-
 import * as S from './footer.style'
+import Desktop from '../Responsive/Desktop'
+import Tablet from '../Responsive/Tablet'
+import Mobile from '../Responsive/Mobile'
 export default function Footer() {
   const footerList = [
     {
@@ -34,21 +35,13 @@ export default function Footer() {
     },
     {
       itemTitle: 'THEO DÕI NGOCANH TRÊN',
-      // itemMeta: <SocialLink />
       itemMeta: [<SocialLink />]
     }
   ]
 
-  const isDesktopOrLaptop = useMediaQuery({
-    query: '(min-width: 1224px)'
-  })
-  const isBigScreen = useMediaQuery({ query: '(min-width: 1824px)' })
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
-  const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
-  const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' })
   return (
-    <div>
-      {isDesktopOrLaptop && (
+    <>
+      <Desktop>
         <div className="container">
           <S.FooterController>
             <S.FooterList>
@@ -64,7 +57,6 @@ export default function Footer() {
                           </S.FooterItemTitle>
                           <S.FooterItemMeta>
                             {footer.itemMeta.map((meta, idx) => {
-                              // console.log(idx)
                               return (
                                 <S.FooterItemMetaItem to="" key={idx}>
                                   <div style={{ marginBottom: '10px' }}>
@@ -82,7 +74,7 @@ export default function Footer() {
               ))}
             </S.FooterList>
             <S.Footer1>
-              <div>© 2022 Ngọc Anh Shop. Tất cả các quyền được bảo lưu</div>
+              <div>© 2022 Ngọc Anh Shop</div>
               <S.Language>
                 <span>Tiếng Anh</span>
                 <span>Tiếng Việt</span>
@@ -90,9 +82,9 @@ export default function Footer() {
             </S.Footer1>
           </S.FooterController>
         </div>
-      )}
+      </Desktop>
 
-      {isTabletOrMobile && (
+      <Tablet>
         <S.FooterController>
           <S.FooterListTabletOrMobile>
             {footerList.map((footer, index) => (
@@ -107,7 +99,6 @@ export default function Footer() {
                         </S.FooterItemTitle>
                         <S.FooterItemMeta>
                           {footer.itemMeta.map((meta, idx) => {
-                            // console.log(idx)
                             return (
                               <S.FooterItemMetaItem to="" key={idx}>
                                 <div style={{ marginBottom: '10px' }}>
@@ -126,10 +117,7 @@ export default function Footer() {
           </S.FooterListTabletOrMobile>
 
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <div>
-              © 2022 Ngọc Anh Shop.
-              {/* Tất cả các quyền được bảo lưu */}
-            </div>
+            <div>© 2022 Ngọc Anh Shop</div>
 
             <S.Language>
               <span>Tiếng Anh</span>
@@ -137,7 +125,49 @@ export default function Footer() {
             </S.Language>
           </div>
         </S.FooterController>
-      )}
-    </div>
+      </Tablet>
+
+      <Mobile>
+        <S.FooterController>
+          <S.FooterListTabletOrMobile>
+            {footerList.map((footer, index) => (
+              <S.FooterTabletOrMobile key={index}>
+                <S.FooterItemTabletOrMobile>
+                  <S.FooterItemWrapper>
+                    <S.Content>
+                      {/*  */}
+                      <S.FooterItemInfo>
+                        <S.FooterItemTitle>
+                          {footer.itemTitle}
+                        </S.FooterItemTitle>
+                        <S.FooterItemMeta>
+                          {footer.itemMeta.map((meta, idx) => {
+                            return (
+                              <S.FooterItemMetaItem to="" key={idx}>
+                                <div style={{ marginBottom: '10px' }}>
+                                  {meta}
+                                </div>
+                              </S.FooterItemMetaItem>
+                            )
+                          })}
+                        </S.FooterItemMeta>
+                      </S.FooterItemInfo>
+                    </S.Content>
+                  </S.FooterItemWrapper>
+                </S.FooterItemTabletOrMobile>
+              </S.FooterTabletOrMobile>
+            ))}
+          </S.FooterListTabletOrMobile>
+
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div>© 2022 Ngọc Anh Shop.</div>
+            <S.Language>
+              <span>Tiếng Anh</span>
+              <span>Tiếng Việt</span>
+            </S.Language>
+          </div>
+        </S.FooterController>
+      </Mobile>
+    </>
   )
 }
