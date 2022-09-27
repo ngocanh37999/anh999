@@ -54,6 +54,8 @@ export default function CartDetail() {
                 <RiDeleteBin5Line />
               </S.CartRemove>
             </S.CartDetailHeaderAction>
+
+            <S.BuyPurchases>Mua hàng</S.BuyPurchases>
           </S.MiniProductCart>
         ))}
       </S.CartDetailSection>
